@@ -1,0 +1,17 @@
+.header {
+    height: 200px;
+    display: grid;
+    align-items: center;
+    h1 {
+        font-weight: bold;
+        font-size: 1.6rem;
+        line-height: 1.8rem;
+        color: #282828;
+        display: block;
+        span {
+            display: block;
+            color: var(--secudary-color);
+            line-height: 1.8rem;
+        }
+    }
+}

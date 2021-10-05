@@ -1,0 +1,26 @@
+.newsletter {
+    padding: 10px;
+    .newsletter__form {
+        background: #FFFAFA;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding: 10px 0;
+            margin-top: 20px;
+            input {
+                border: inherit;
+                padding: 10px 10px;
+                font-size: 10px;
+            }
+            button {
+                border: inherit;
+                padding: 10px 10px;
+                background: #fff;
+                font-size: 10px;
+                line-height: initial;
+                color: #282828;
+            }
+        }
+    }
+}
