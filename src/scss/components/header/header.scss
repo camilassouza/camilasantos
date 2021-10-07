@@ -15,3 +15,15 @@
         }
     }
 }
+
+header {
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns: 1fr 1fr;
+    ul{
+        display: none;
+        &.active {
+            display: block;
+        }
+    }
+}

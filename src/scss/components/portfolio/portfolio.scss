@@ -1,0 +1,21 @@
+.portfolio__container {
+    width: 100%;
+    overflow: hidden;
+    overflow-x: auto;
+    display: block;
+    margin: 20px auto;
+    white-space: nowrap;
+    .portfolio__item {
+        display: inline-block;
+        white-space: initial;
+        text-align: center;
+        margin: 0;
+        height: 150px;
+        background: #ff4c60;
+        width: 150px;
+        padding: 10px 5px;
+        align-items: center;
+        color: #fff;
+        border-radius: 10px;
+    }
+}
