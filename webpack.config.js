@@ -1,26 +1,52 @@
-const path = require('path');
+const path = require('path')
+const HtmlWebPackPlugin = require('html-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin')
+const webpack = require('webpack')
 
 module.exports = {
-    mode: 'development',
-    entry: './src/index.js',
+    entry: './app/src/js/app.js',
     output: {
-      filename: 'main.js',
-      path: path.resolve(__dirname, 'dist'),
-    },
-      devServer: {
-        historyApiFallback: true,
-        static: {
-            directory: path.join(__dirname, 'dist'),
-        },
-        port: 9000,
-        compress: true,
+        filename: 'bundle.js',
+        path: path.resolve(__dirname, 'app/dist'),
+        clean: true
     },
     module: {
         rules: [
-          {
-            test: /\.(scss|css)$/,
-            use: ['style-loader', 'css-loader', 'sass-loader'],
-          },
-        ],
-      },
-  };
+            {
+                test: /\.s[ac]ss$/i,
+
+                use: [
+                        MiniCssExtractPlugin.loader,
+                        'css-loader',
+                        "sass-loader",
+                        {
+                            loader: "sass-loader",
+                            options: {
+                              // Prefer `dart-sass`
+                              implementation: require.resolve("sass"),
+                            },
+                          },
+                    ]
+                }
+            ]
+    },
+    optimization: {
+        minimize: true,
+        minimizer: [
+            new CssMinimizerWebpackPlugin(),
+            "..." //read JS compression
+        ]
+    },
+    plugins: [ 
+        new HtmlWebPackPlugin({
+            template: './app/src/app.html',
+            filename: 'app.html',
+            hash: true
+        }), 
+        new MiniCssExtractPlugin({
+            filename: 'style.css'
+        }),
+    ]
+}
