@@ -20,6 +20,18 @@ header {
     display: grid;
     justify-content: space-between;
     grid-template-columns: 1fr 1fr;
+
+    .menu-hamburger__hamburger.active:before {
+        content: "";
+        height: 100vh;
+        position: fixed;
+        width: 100%;
+        display: block;
+        left: 0px;
+        background: #0a0a0a33;
+        z-index: 1;
+        top: 0;
+    }
     ul{
         display: block;
         position: fixed;
